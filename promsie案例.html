@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 模拟用户的登陆和获取用户信息的异步请求promise对象的表现
+        let status = '1';
+        let userLogin = (resolve, reject) => {
+            if (status == '1') {
+                setTimeout(function () {
+                    resolve({ data: '登陆成功', msg: 'XXX', token: 'ksdcmkdmvkc' });
+                }, 2000);
+            } else {
+                reject('fail');
+            }
+        }
+        let userInfo = (resolve, reject) => {
+            if (status == '1') {
+                setTimeout(function () {
+                    resolve({ data: '获取用户信息成功', msg: 'XXX', token: 'ksdcmkdmvkc' });
+                }, 1000);
+            } else {
+                reject('fail');
+            }
+        }
+
+        new Promise(userLogin).then(
+            res => {
+                console.log('登陆成功')
+                console.log(res);
+                return new Promise(userInfo)
+            }
+        ).then(
+            res => {
+                console.log(res);
+            }
+        ).catch(err=>{
+            console.log(err);
+        })
+    </script>
+</body>
+
+</html>

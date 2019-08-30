@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // promise
+        // 作用：解决异步回调问题
+        // Promise.resolve('aa')将'aa'转换成promise对象，并且是resolve的状态。相当于 new Promise(resolve =>{resove('aa')})
+        // Promise.reject('aa')将'aa'转换成promise对象，并且是reject的状态。相当于 new Promise(reject =>{reject('aa')})
+        // Promise.all():把promise打包，扔到一个数组里面，得到的还是一个promise对象，必需确保所有的promise对象都是resolve状态才成功
+        // Promise.race(): 只要最前面那个成功了就成功返回第一个resolve
+        // 语法：
+        let a = 12;
+        let apromise  = new Promise((resolve,reject)=>{
+            // resolve 成功的时候调用
+            // reject 失败的时候调用
+            if(a == 10){
+                resolve('success')
+            }else{
+                reject('fail')
+            }
+        });
+        
+        apromise.then(res=>{
+            console.log(res);
+        },
+        err =>{
+            console.log(err);
+        });
+
+        apromise.catch(err=>{// reject发生错误的别名
+            console.log(err);
+        });
+
+        // 常用的形式：
+        apromise.then(data =>{
+            console.log(data);
+        }).catch(err=>{
+            console.log(err);
+        });
+
+        // Promise.all():把promise打包，扔到一个数组里面，得到的还是一个promise对象,必需确保所有的promise对象都是resolve状态
+        let p1 = Promise.resolve('aaa');
+        let p2 = Promise.resolve('bbb');
+        let p3 = Promise.reject('ccc');
+        Promise.all([p1,p2,p3]).then(res=>{
+            let [res1,res2,res3] = res;
+            console.log(res1,res2,res3);
+        }).catch(err=>{
+            console.log('err1',err)
+        });
+
+        Promise.race([p1,p2,p3]).then(data=>{
+            console.log(data);
+        }).catch(err=>{
+            console.log(' err2', err);
+        });
+
+
+    </script>
+</body>
+</html>

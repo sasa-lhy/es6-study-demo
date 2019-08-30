@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let name = 'sasa';
+        let age = 18;
+        let json = {
+            name, // name:name的缩写
+            age,
+            // show :function(){
+            //     return this.name;
+            // },的简洁写法 //  不要在这个地方用箭头函数
+            show(){
+                return this.name;
+            }
+        }
+        console.log(json.show());
+
+        // Object.is()比较两个东西是否相等
+        console.log(NaN == NaN);//false
+        console.log(NaN === NaN);//false
+        console.log(Object.is(NaN,NaN));//true
+        console.log(+0 === -0);// true
+        console.log(Object.is(+0,-0)); // false
+
+        // Object.assign(目标对象，源1，源2....): 用来合并对象，后面的会覆盖前面的，即源2和源1存在相同的字段时，源2会覆盖源1的值
+        let json1={a:1};
+        let json2={a:4,b:2};
+        let json3={c:3};
+        let jsonResult = Object.assign({},json1,json2,json3);
+        console.log(jsonResult);
+
+        // Object.assign复制对象
+        let arr = [1,2,3];
+        let arr1 = Object.assign([],arr);
+        arr.pop();
+        console.log(arr);
+        console.log(arr1);
+
+        //  对象：es2017: Object.keys()只能遍历键,Object.entries()都可,Object.values()只能遍历值;
+        let json4 = {
+            a:1,
+            b:2,
+            c:3,
+        }
+        for(let [key,val] of Object.entries(json4)){
+            console.log(key,val);
+        }
+        for(let val of Object.values(json4)){
+            console.log(val);
+        }
+        for(let key of Object.keys(json4)){
+            console.log(key);
+        }
+
+        //  对象上使用扩展运算符...
+        let {x,y,...z}= {x:1,y:2,a:3,b:4,c:5};
+        console.log(x,y,z);
+        let json5 = {x:1,y:2,a:3,b:4,c:5};
+        let json6 = {...json5};
+        delete json5.a;
+        console.log(json5);
+        console.log(json6); 
+
+    </script>
+</body>
+</html>

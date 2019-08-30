@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 普通循环
+        // 1.for for(let i=0;i<10;i++)
+        // 2.while 
+        let arr = [
+            {title:'aaaa',read:100,hot:true},
+            {title:'bbbbbbb',read:2,hot:false},
+            {title:'cccccccc',read:120,hot:true},
+            {title:'ddddd',read:15,hot:false},
+        ]
+        // 1. arr.forEach(循环回调函数)用来代替普通的for循环，函数的三个参数，分别是(值、索引、当前循环体也就是数组)
+        // arr.forEach(function(val,index,array){
+        //     console.log(val,index,array);
+        // });
+
+
+        // 2. arr.map(循环回调函数) 非常有用，做数据交互，映射,正常情况下需要配合return，没有返回值的时候相当于forEach()
+        // 平时要用map，一般都是要有返回值的。
+        // 重新整理数据结构。
+        // let maparr = arr.map(function(val,index,array){
+        //     let json={};
+        //     json.name = val.title;
+        //     json.show = val.hot;
+        //     console.log(val,index,array);
+        //     return json;
+        // });
+        // console.log(maparr);
+
+        // 3. arr.filter(循环回调函数) :过滤，过滤掉一些不合格的元素，回掉函数返回true就留下，否则就过滤掉
+        // let arrfilter = arr.filter((val,index,array)=>{
+        //     return val.hot
+        // });
+        // console.log(arr); // 不受影响
+        // console.log(arrfilter);
+        
+        // 4. arr.some() 类似查找，数组里面某一个元素符合条件就返回true;类似findInArray(数组,要查找的值);
+        // 5. arr.every() 数组里面所有的元素都符合条件才返回true
+        // let arr1 = [1,2,3,4,5];
+        // let someR = arr1.some((val,index,array)=>{
+        //     return val<2;
+        // });
+        // let everyR = arr1.every((val,index,array)=>{
+        //     return val>2;
+        // });
+        // console.log(someR,everyR);
+
+        // 6. arr.reduce() 求和，求阶乘可以用到,从左往右,arr.reduceRight (),从右往左计算
+        // let arr2 = [1,2,3,4];
+        // let reduceArr = arr2.reduceRight((prev,cur,index,arr)=>{
+        //     return prev+cur
+        // });
+        // console.log(reduceArr);
+
+    </script>
+</body>
+</html>

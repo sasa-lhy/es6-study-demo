@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var 作用域：函数作用域，全局作用域
+        // let const 作用域:块级作用域{},if(){},for(){},while(){}
+        // let 相当于var,
+        //  1.没有预解析，没有变量提升，
+        //  2.先定义再使用
+        //  3.不能在同一个作用域里重复定义变量
+        //  4.for循环，for循环里面是父级作用域，{}里面是子级作用域，不算重复定义
+        //  5.块级作用域可以套嵌，子集作用域可以访问父级作用域的内容
+        // const 定义好不能改变
+        let a = 12;
+        // 如果 let a = 4; Identifier 'a' has already been declared不能重复定义
+        function fn(){
+            alert(a);// TDZ 暂时性死区
+            // let a=5; Cannot access 'a' before initialization先定义再使用
+        }
+        fn();
+        
+        for(let i=0;i<3;i++){
+            let i='abc';
+            console.log(i);
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // const 定义完必需有值，就是定义的时候就要初始化(否则报错：Missing initializer in const declaration)
+        const a = 12;
+        const arr = [1,2,3];
+        Object.freeze(arr);
+        arr.push(4);// 对象类型的可以修改
+        // Object.freeze(对象)冻结一个对象，不可修改
+        const arr1 = Object.freeze([2,3,4,5]);
+        // arr1.push(1) // 不可修改
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 函数默认值
+        function show(a = 'welcom', b = 'sasa') {
+            console.log(a, b);
+        }
+        show('kk', 'll');
+        show();
+
+        //函数参数默认已经定义，不能再用let，const去声明。
+        function show1(a) {
+            // 如果 let a = 2;报错Identifier 'a' has already been declared
+            console.log(a)
+        }
+        show1(12);
+
+        //扩展运算符，rest运算符:...既可以展开又可以重置还原
+        let arr = [1, 2, 3];
+        console.log(arr);
+        // ...展开
+        console.log(...arr);
+        // ...还原
+        function show2(...a) {
+            console.log(a);
+        }
+        show2(1, 2, 3, 4);
+
+        //数组排序(旧)
+        function show3() {
+            let a = Array.prototype.slice.call(arguments);
+            return a.sort();
+        }
+        console.log(show3(1, 54, 5, 3, 2));
+        //数组排序(推荐)
+        function show4(...a) {
+            console.log(a.sort())
+        }
+        show4(1,2,4,43,0);
+
+        //...也是剩余运算符，放置在函数的最后一个参数
+         function show5(a,b,...c){
+             console.log(a,b,c);
+         }
+         show5(1,2,3,4,5,45,6);
+
+         // 复制数组
+         let arr1=[1,2,34,5];
+         let arr2 = [...arr1];
+         arr1.push(67);
+         console.log(arr1,arr2);
+    </script>
+</body>
+
+</html>

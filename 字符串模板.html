@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 语法：`${变量名}`
+        // 优点：可以随意换行
+        // 字符串连接可以被弃用了
+        // 字符串查找：之前用indexOf()，现在用includes()
+        let a= 'strive';
+        let age = 18;
+        let str = `这个人叫${a},年龄是${age}`;
+        console.log(str);
+
+        //  includes()字符串查找,返回true和false
+        let str1 = 'apple banana pear';
+        console.log(str1.includes('apple'));
+
+        // startsWith()字符串是否以XXX开头
+        // endsWith()字符串是否以XXX结尾
+        let url = 'http://www.baidu.com';
+        let img = 'hh.png'
+        console.log(url.startsWith('https'));
+        console.log(url.startsWith('http'));
+        console.log(img.endsWith('.png'));
+
+        // repeat(重复次数)
+        let re='chongfu';
+        console.log(re.repeat(10));
+
+
+    </script>
+</body>
+</html>

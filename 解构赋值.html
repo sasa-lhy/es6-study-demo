@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 解构赋值：在做数据交互，ajax中特别有用
+        // 左右格式要一致
+        let [a,b,c]=[12,43,124];
+        console.log(a,b,c);
+
+        let json={
+            name:'sasa',
+            age:'18',
+            job:'web'
+        }
+        let {name,age,job} = json;
+        console.log(name,age,job);
+        // 解构还可以给数据起别名，当后台传回来的数据的key值你不想用的时候
+        let {name:n,age:g,job:j} = json;
+        console.log(n,g,j);
+
+        // 给变量取默认值
+        let [q,w,e = '暂无'] = [22,33];
+        console.log(q,w,e);
+        //  当为undifine时使用默认值，但是当为null时不会取默认值，就是null
+        let  [r,t='暂无']=[11,null]
+        console.log(r,t);
+
+        //  当对象的{}与块级作用域混淆冒红时时可以使用()包裹在{}外面。
+        let hx;
+        ({hx}={hx:'hhh',eg:'ll'});
+        console.log(hx);
+        
+        //交换数值
+        let change1 = 5;
+        let change2 = 7;
+        [change1,change2]=[change2,change1];
+        console.log(change1,change2);
+
+        // top指的是window对象，不能作为变量名
+        function fn(){
+            return{
+                r1:'11',
+                r2:'33'
+            }
+        }
+        let {r1:fst,r2:sec}= fn();
+        console.log(fst,sec);
+    </script>
+</body>
+</html>

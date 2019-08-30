@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 箭头函数：
+        // ()=>return的东西
+        // ()=>{处理语句,retunr}
+        let show0 = ()=> 0;
+        let show = ()=>{
+            return 1;
+        }
+        console.log(show0());
+        console.log(show());
+
+        // this问题，定义函数所在的对象，不再是运行时所在的对象
+        // setTimeout是属于window的方法，所以this指的是window
+        // 箭头函数里面没有arguments，用...就行
+        // 箭头函数不能当构造函数
+        function show1(...args){
+            console.log(args);
+        }
+        show1(1,2,3,4);
+    </script>
+</body>
+</html>

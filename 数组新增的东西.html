@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+     <ul>
+         <li>aa</li>
+         <li>bb</li>
+         <li>cc</li>
+         <li>dd</li>
+         <li>ee</li>
+     </ul>
+     <script>
+         // Array.from(): 把类数组对象（获取的一组元素，arguments等）转换成数组,一般的，具备length属性的对象就是类数组对象
+         window.onload= function(){
+            let lis = document.querySelectorAll('li');
+            let arrLi = [...lis];
+            let arrLis = Array.from(lis);
+            arrLi.push(1);
+            console.log(lis);
+            console.log(arrLi);
+            console.log(arrLis);
+
+            // 字符串转换成数组
+            let str = 'hello';
+            console.log(Array.from(str));
+
+            // arguments转换成数组
+            function fn(){
+                console.log(Array.from(arguments))
+            }
+            fn(1,2,3,4,5,6);
+
+            // json对象转换成数组
+            let json = {
+                0:'apple',
+                1:'orange',
+                2:'banana',
+                length:3 
+            }
+            console.log(Array.from(json));// 没有 length 会报错
+
+            // Array.of() 将一组数据转换成数组
+            // arr.find() 查找数组中一个符合条件的数组成员，如果没有找到undefined
+            let arr = Array.of(12,51,54,36,8,'hh');
+            console.log(arr);
+            let arrFind = arr.find((val,index,array)=>{
+                return val>100
+            });
+            console.log(arrFind);
+            // arr.findIndex()  查找位置
+            let arrFindIndex = arr.findIndex((val,index,array)=>{
+                return val>50
+            });
+            console.log(arrFindIndex);
+
+            // arr.fill()填充 arr.fill(填充的东西，开始位置，结束位置);
+            let newArr = new Array(5);
+            newArr.fill(1,2,4);
+            console.log(newArr);
+
+            // 以前用arr.indexOf()，现在用includes()判断数组中是否存在某个值，这个方法对字符串也同样适用。
+            let arr2 = ['one','two','three'];
+            console.log(arr2.includes('two'));
+         }
+     </script>
+</body>
+</html>
